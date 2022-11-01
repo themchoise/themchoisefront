@@ -1,0 +1,141 @@
+mat-sidenav{
+    margin: 16px;
+    width: 280px;
+    border-right: none;
+    background-color:  #212121;
+    color:#A087D8;
+    border-radius: 10px;
+    padding: 16px;
+    text-align: center;
+}
+.mat-sidenav-backdrop.mat-sidenav-shown{
+    background-color: transparent !important;
+}
+
+.lnkIco{
+    color: #A087D8;
+    width: 25px;
+    margin-bottom: 10px;
+    
+
+}
+
+.menu-button{display:
+     flex;}
+
+.imgSideNav{
+    width: 15vh;
+    height: 15vw;
+    box-shadow: #A087D8;
+    transform-origin: left;
+    position: relative;
+    overflow: hidden;
+   
+}
+
+.align-left{
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: center;
+    align-items: right;
+}
+
+.row-x{
+    display: flex;
+    flex-direction: row;
+    
+}
+
+.toEnd{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.containerColumn{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+button{
+    margin-top: 15px;
+    background: none;
+    color: white;
+    border: none;
+    
+}
+button span{
+    margin-top: 6px;
+    margin-left: 3px;
+}
+
+span{
+    margin-bottom: 5px;
+}
+
+
+.content {
+    
+    background-color: #303030;
+    
+    margin:42px;
+    margin-left: 42px;
+    font-size: 2rem;
+    border-radius: 10px;
+}
+
+mat-sidenav-container{
+    height: calc(100vh - 65px);
+}
+
+.textEnd{
+    justify-content: right;
+    padding: 35px;
+}
+
+.aboutContainer{
+   
+    margin-top: 15px;
+    border-radius: 15px;
+    height: auto;
+    width: 100%;
+    
+    
+}
+
+.jobsContainer{
+    margin-top: 15px;
+    border-radius: 15px;
+height: 100%;
+width: 100%;
+
+
+
+}
+.expContainer{
+    margin-top: 15px;
+    border-radius: 15px;
+    height:100%;
+    width: 100%;
+}
+
+ h1{
+    margin-top: 20px;
+    padding: 0;
+    font-family: 'Roboto';
+    font-size: 5rem;
+    letter-spacing: 0;
+    text-transform: uppercase;
+}h2{
+  
+    padding: 0;
+    font-family: 'Roboto';
+    color:#945d8c;
+    letter-spacing: 0;
+    text-transform: uppercase;
+    text-align: right;
+}
+

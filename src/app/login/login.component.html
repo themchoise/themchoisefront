@@ -1,0 +1,8 @@
+<div class="kingCardLogin">
+    <form #simpleForm="ngForm" (ngSubmit)="simpleForm.form.valid && login(simpleForm.value)"  >
+      <input type="text" ngModel name="login" placeholder="Usuario" />
+      <input type="text" ngModel name="password" placeholder="Contraseña" />
+       <input type="submit" value="Login" />
+       <p *ngIf="statusMsg!==''">{{statusMsg}}</p>
+    </form>
+</div>

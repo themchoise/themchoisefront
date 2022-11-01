@@ -1,0 +1,7 @@
+<div class="dialogScreen">
+  <form class="container-fluid d-flex flex-column" #aboutForm="ngForm" (ngSubmit)="aboutForm.form.valid && editForm(aboutForm.value)"  >
+  <textarea type="text"   ngModel={{candy}} name="about_me">  </textarea>
+  <input type="submit" value="Guardar los cambios" class="btn btn-secondary mt-5">
+    <p *ngIf="statusMsg!==''">{{statusMsg}}</p>
+  </form>
+</div>

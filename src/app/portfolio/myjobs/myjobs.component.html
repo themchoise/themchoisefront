@@ -1,0 +1,44 @@
+
+
+
+<div class="table-margins">
+	<table>
+
+
+
+
+<!-- Post -->
+<div class="page">
+	<div class="page__demo">
+		<div class="main-container page__container">
+			<div class="timeline">
+				<span class="timeline__year">Inicio</span>
+				<br>
+
+				<div class="timeline__box" *ngFor="let job of jobsDataArr ; let indexOfelement=index">
+					<div class="timeline__date">
+						<span class="timeline__day">{{job.year_start}}</span>
+						<span class="timeline__month">{{job.year_end}}</span>
+					</div>
+					<div class="timeline__post">
+						<div class="timeline__content">
+							<p  class="title1">{{job.company}}</p>
+						
+              <p *ngIf="job.job_title" class="title2" >{{job.job_title}}</p>
+							<p>{{job.job_desc}}</p>
+							<div *ngIf="isLogged" >
+								<button mat-button (click)="openDialog(indexOfelement)"  class="btn btnEdit" >
+									<mat-icon>edit</mat-icon>
+								  </button>
+							</div>
+						</div>
+					</div>
+				</div>
+        <!-- MODIFICAR -->
+
+				<span class="timeline__end"  >Fin</span>
+
+			</div>
+		</div>
+	</div>
+</div>

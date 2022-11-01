@@ -1,0 +1,13 @@
+#mainDiv{
+    width: auto;
+    height:auto;
+    padding: 48px;
+    justify-content: center;
+    align-items: center;
+}
+
+p{
+    text-align: center;
+    font-family: Roboto;
+    
+}

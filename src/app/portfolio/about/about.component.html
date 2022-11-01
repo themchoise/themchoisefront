@@ -1,0 +1,16 @@
+
+<div class="container-fluid">
+ 
+<h3>   
+    {{ mePersonaData?.about_me?mePersonaData.about_me:'No Data From Api About Me' }}
+    <div *ngIf="isLogged" >
+        <button mat-button (click)="openDialog()"  class="btn btnEdit" >
+            <mat-icon>edit</mat-icon>
+          </button>
+    </div>
+   
+</h3>
+
+
+
+</div>

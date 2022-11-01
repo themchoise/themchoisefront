@@ -1,0 +1,77 @@
+<div>
+  <mat-toolbar class="mat-elevation-z8 row-x">
+    <mat-toolbar-row>
+      <button mat-icon-button *ngIf="sidenav.mode === 'over'" (click)="sidenav.toggle()">
+        <mat-icon *ngIf="!sidenav.opened"> menu </mat-icon>
+        <mat-icon *ngIf="sidenav.opened"> close </mat-icon>
+      </button>
+    </mat-toolbar-row>
+    <mat-toolbar-row class="toEnd">
+
+      <button *ngIf="!isLogged" (click)="handleRoute()" mat-icon-button class="example-icon favorite-icon"
+        aria-label="Example icon-button with heart icon">
+        <mat-icon>login</mat-icon> <sub>Login</sub>
+      </button>
+
+      <button *ngIf="isLogged" (click)="handleLogOut()" mat-icon-button class="example-icon favorite-icon"
+        aria-label="Example icon-button with heart icon">
+        <mat-icon>logout</mat-icon> <sub>LogOut</sub>
+      </button>
+
+      <button mat-icon-button class="example-icon"
+        (click)="goToLink('https://www.linkedin.com/in/maximiliano-joyce-254921125/')"
+        aria-label="Example icon-button with share icon">
+        <img src="./assets/linkedin.png" class="lnkIco">
+      </button>
+    </mat-toolbar-row>
+  </mat-toolbar>
+
+  <mat-sidenav-container [hasBackdrop]="false">
+    <mat-sidenav #sidenav="matSidenav" class="mat-elevation-z8">
+      <img class="avatar mat-elevation-z8 imgSideNav" src="./assets/cat.jpg" alt="Cat" />
+      <h4 class="name">Maximiliano Joyce</h4>
+      <!--
+      <mat-divider></mat-divider>
+      <div class="containerColumn">
+        <button mat-button class="menu-button" routerLink="/home">
+          <mat-icon>home</mat-icon>
+          <span>Home</span>
+        </button>
+        <button  (click)="onClick('AnchorAbout')" mat-button class="menu-button">
+          <mat-icon>person</mat-icon>
+          <span>About</span>
+        </button>
+        <button mat-button class="menu-button">
+          <mat-icon>info</mat-icon>
+          <span>Info</span>
+        </button>
+      </div>
+      <mat-divider></mat-divider>
+      !-->
+    </mat-sidenav>
+    <mat-sidenav-content>
+      <div class="content mat-elevation-z8 ">
+        <div class="mat-elevation-z8 container-fluid p-5 text-end">
+          <h2>Maximiliano Joyce</h2>
+          <h2>Backend Developer <3   </h2>
+        </div>
+        <div id="AnchorAbout" class="mat-elevation-z8 aboutContainer">
+          <app-about class="mat-elevation-z8"></app-about>
+        </div>
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col">
+              <app-myjobs></app-myjobs>
+            </div>
+            <div class="col d-flex justify-content-center"> 
+              <app-skills></app-skills>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="content mat-elevation-z8 ">
+        <app-education></app-education>
+      </div>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+</div>

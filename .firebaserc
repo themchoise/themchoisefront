@@ -1,0 +1,8 @@
+{
+  "projects": {
+    "default": "themchoiseangularfront",
+    "portfront": "themchoiseangularfront"
+  },
+  "targets": {},
+  "etags": {}
+}
