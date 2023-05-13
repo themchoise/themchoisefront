@@ -39,7 +39,7 @@ export class EducationDialogEditComponent implements OnInit {
         this.aboutChange.emit(form);
       }
     }, catchError => {
-      console.log(catchError)
+    
       alert('Error al guardar')
 
     });

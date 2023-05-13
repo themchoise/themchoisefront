@@ -4,28 +4,28 @@
 
       <div class="input-group mb-3">
         <span class="input-group-text" id="basic-addon1" name="anioInicio"  >Año Inicio</span>
-        <input type="number" class="form-control" ngModel={{year_start}}  name="year_start" aria-describedby="basic-addon1">
+        <input type="number" class="form-control" ngModel={{year_start}}  name="year_start" aria-describedby="basic-addon1" required="true">
       </div>
 
       <div class="input-group mb-3">
         <span class="input-group-text" id="basic-addon1" name="anioFin">Año Fin</span>
-        <input type="number" class="form-control" ngModel={{year_end}}  name="year_end" aria-describedby="basic-addon1">
+        <input type="number" class="form-control" ngModel={{year_end}}  name="year_end" aria-describedby="basic-addon1" >
       </div>
 
       <div class="input-group mb-3">
         <span class="input-group-text" id="basic-addon1" >Empresa</span>
-        <input type="text" class="form-control" ngModel={{company}}  name="company"  aria-describedby="basic-addon1">
+        <input type="text" class="form-control" ngModel={{company}}  name="company"  aria-describedby="basic-addon1" required="true">
       </div>
      
       <div class="input-group mb-3">
         <span class="input-group-text" id="basic-addon1" name="puesto">Puesto</span>
-        <input type="text" class="form-control" ngModel={{job_title}}  name="job_title" aria-describedby="basic-addon1">
+        <input type="text" class="form-control" ngModel={{job_title}}  name="job_title" aria-describedby="basic-addon1" required="true">
       </div>
 
 
     <textarea type="text"   ngModel={{job_desc}} name="job_desc">  </textarea>
   
-    <input type="submit" value="Guardar los cambios" class="btn btn-secondary mt-5">
+    <input type="submit" value="Guardar los cambios" class="btn btn-secondary mt-5" required="true">
       <p *ngIf="statusMsg!==''">{{statusMsg}}</p>
     </form>
   </div>

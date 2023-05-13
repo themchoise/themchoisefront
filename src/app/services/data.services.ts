@@ -8,24 +8,29 @@ import { catchError } from 'rxjs/operators';
 import { EducationClass } from '../models/education.model';
 
 
-let token: string = localStorage.getItem('X-TOKEN') || '';
-
-const httpOptions = {
-  headers: new HttpHeaders({
-    'Content-Type': 'application/json',
-    'Authorization': token ? token : ''
-  })
-};
+let token: string = '';
 
 
 @Injectable({ providedIn: 'root' })
 export class DataService {
 
 
+
+  
   constructor(private readonly httpClient: HttpClient) { }
+  
+  
+
+  obtainTocken():string{
+    token = localStorage.getItem('X-TOKEN') || ''
+    return token
+  } 
+
+  
 
   //Read Data 
   meData(): Observable<any> {
+    
     return this.httpClient.get(`${apiData}ver/portFolioData`, {
 
       headers:
@@ -63,21 +68,65 @@ export class DataService {
 
   // Save About Me 
   saveAboutMe(meGatoPan: MePersona): Observable<any> {
-
-    return this.httpClient.put(`${apiData}edit/portFolioData`, meGatoPan, httpOptions).pipe(e => e);
+  
+    this.obtainTocken()
+    return this.httpClient.put(`${apiData}edit/portFolioData`, meGatoPan, {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization': this.obtainTocken()
+      })
+    }).pipe(e => e);
   }
 
   // Save Jobs
   saveJobs(gatopanJobs: JobsClass): Observable<any> {
 
-
-    return this.httpClient.put(`${apiData}edit/kingKongJobs`, gatopanJobs, httpOptions).pipe(e => e);
+    this.obtainTocken()
+    return this.httpClient.put(`${apiData}edit/kingKongJobs`, gatopanJobs, {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization': this.obtainTocken()
+      })
+    }).pipe(e => e);
   }
+
+    // Remove Jobs
+    removeJobs(gatopanJobs: JobsClass): Observable<any> {
+
+      this.obtainTocken()
+      return this.httpClient.put(`${apiData}remove/kingKongJobs`, gatopanJobs, {
+        headers: new HttpHeaders({
+          'Content-Type': 'application/json',
+          'Authorization': this.obtainTocken()
+        })
+      }).pipe(e => e);
+    }
+
+       // Remove Education
+       removeEduc(gatopanEducation: EducationClass): Observable<any> {
+
+        this.obtainTocken()
+        return this.httpClient.put(`${apiData}remove/education`, gatopanEducation, {
+          headers: new HttpHeaders({
+            'Content-Type': 'application/json',
+            'Authorization': this.obtainTocken()
+          })
+        }).pipe(e => e);
+      }
+  
+
+    
 
   
   // Save Education
   saveEducation(gatopanEducation: EducationClass): Observable<any> {
-    return this.httpClient.put(`${apiData}edit/education`, gatopanEducation, httpOptions).pipe(e => e);
+    this.obtainTocken()
+    return this.httpClient.put(`${apiData}edit/education`, gatopanEducation, {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization': this.obtainTocken()
+      })
+    }).pipe(e => e);
   }
 
 

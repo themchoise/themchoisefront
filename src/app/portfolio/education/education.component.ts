@@ -18,7 +18,8 @@ export class EducationComponent implements OnInit {
 
   isLogged:boolean = false;
   educationDataArr: any[] = [];
-  displayedColumns: string[] = ['select','academy', 'title', 'year_start', 'year_end', 'description'];
+  // displayedColumns: string[] = ['select','academy', 'title', 'year_start', 'year_end', 'description'];
+  displayedColumns: string[] = ['select','academy', 'title', 'year_start', 'year_end'];
       public  dataSource = new MatTableDataSource<EducationClass>();
     selection = new SelectionModel<EducationClass>(true, []);
  
@@ -27,28 +28,54 @@ export class EducationComponent implements OnInit {
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
 
+   isPhone:boolean = false;
+   
+
 
   constructor( public educData:DataService, private matDiaLog: MatDialog, public verifiToken:TokenService,  private elementRef: ElementRef) { }
 
-  openDialog(){
-    
-    this.matDiaLog.open(EducationDialogEditComponent,{
-      data: this.r
-    }).componentInstance.aboutChange.subscribe(result=> {
-      if (result){
-        this.educData.meEducation().pipe( tap(res => {
-          // this.educationDataArr=res
-          this.educationDataArr = res,
-          this.dataSource.data = res;
-        }    )).subscribe();
-      }
-    })
+  openDialog(indexOfelement:number){
+    // HANDLE EDIT
+    if (indexOfelement===-1){
+this.matDiaLog.open(EducationDialogEditComponent,{
+  data:[] }).componentInstance.aboutChange.subscribe(result=> this.fn());
+    }else{
+      this.matDiaLog.open(EducationDialogEditComponent,{
+        data: this.r
+        
+      }).componentInstance.aboutChange.subscribe(result=> {
+        if (result){
+          this.educData.meEducation().pipe( tap(res => {
+            // this.educationDataArr=res
+            this.educationDataArr = res,
+            this.dataSource.data = res;
+          }    )).subscribe();
+        }
+      })
     }
+    
+
+    }
+
+    removeItem(){
+      this.educData.removeEduc(this.r).pipe()
+      .subscribe( res => {
+        if ( res.status){
+          console.log(res.status)
+       alert('Dato Eliminado Correctamente')
+       //location.reload()
+        }
+      },(catchError) => {
+        alert('Error al Eliminar')
+      });
+      
+      
+      }
+
     
    /** Whether the number of selected elements matches the total number of rows. */
    r: any
 selected(row?: any):void{
-
   if ( !this.selection.isSelected(row)  ){
     this.r = row;
   }else{
@@ -60,6 +87,11 @@ selected(row?: any):void{
 }
 
   ngOnInit(): void {
+    
+      if( (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent))){
+        this.isPhone=true;
+      }
+  
 
     this.educData.meEducation().pipe( tap(res => {
       // this.educationDataArr=res
@@ -81,6 +113,10 @@ selected(row?: any):void{
   
 
   }
+
+  fn() {
+    this.ngOnInit();
+}
 
 
   isAllSelected() {

@@ -1,5 +1,6 @@
 table {
     width: 100%;
+    
   }
 
 table td { 
@@ -19,4 +20,19 @@ table td {
     font-size: medium;
     color: #5C8E3A;
     border-right:0.5px solid  aliceblue;
+  }
+
+  span{
+    font-size: 0.9rem;
+  }
+  .notify{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .btnAdd{
+    /* Add application styles & imports to this file! */
+  color: #2ecc71;
   }

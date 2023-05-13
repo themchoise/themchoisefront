@@ -1,4 +1,4 @@
-<div>
+<div class="maindivPortfolio">
   <mat-toolbar class="mat-elevation-z8 row-x">
     <mat-toolbar-row>
       <button mat-icon-button *ngIf="sidenav.mode === 'over'" (click)="sidenav.toggle()">
@@ -26,7 +26,7 @@
     </mat-toolbar-row>
   </mat-toolbar>
 
-  <mat-sidenav-container [hasBackdrop]="false">
+  <mat-sidenav-container class="clancy" [hasBackdrop]="false">
     <mat-sidenav #sidenav="matSidenav" class="mat-elevation-z8">
       <img class="avatar mat-elevation-z8 imgSideNav" src="./assets/cat.jpg" alt="Cat" />
       <h4 class="name">Maximiliano Joyce</h4>
@@ -50,26 +50,28 @@
       !-->
     </mat-sidenav>
     <mat-sidenav-content>
-      <div class="content mat-elevation-z8 ">
+      <div class="content mat-elevation-z8">
         <div class="mat-elevation-z8 container-fluid p-5 text-end">
           <h2>Maximiliano Joyce</h2>
-          <h2>Backend Developer <3   </h2>
+          <h2>Backend Developer</h2>
         </div>
-        <div id="AnchorAbout" class="mat-elevation-z8 aboutContainer">
-          <app-about class="mat-elevation-z8"></app-about>
-        </div>
-        <div class="container-fluid">
-          <div class="row">
-            <div class="col">
-              <app-myjobs></app-myjobs>
-            </div>
-            <div class="col d-flex justify-content-center"> 
-              <app-skills></app-skills>
-            </div>
-          </div>
-        </div>
+             
       </div>
-      <div class="content mat-elevation-z8 ">
+
+      <div class="content mat-elevation-z8 educationContainer">
+        <app-about class="mat-elevation-z8"></app-about>
+      </div>
+
+
+      <div class="content mat-elevation-z8 educationContainer">
+        <app-myjobs></app-myjobs>
+      </div>
+      
+      <div class="content mat-elevation-z8 educationContainer">
+        <app-skills></app-skills>
+      </div>
+
+      <div class="content mat-elevation-z8 educationContainer">
         <app-education></app-education>
       </div>
     </mat-sidenav-content>

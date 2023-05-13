@@ -8,6 +8,7 @@ import { EducationClass } from '../../../models/education.model';
 import { catchError } from 'rxjs/operators';
 
 
+
 @Component({
   selector: 'app-myjobs-dialog-edit',
   templateUrl: './myjobs-dialog-edit.component.html',
@@ -27,7 +28,7 @@ export class MyjobsDialogEditComponent implements OnInit {
   public statusMsg: string = '';
 
   public id:number = this.data.id;
-  public company = this.data.company
+  public  company = this.data.company  
   public job_title = this.data.job_title
   public job_desc = this.data.job_desc
   public year_start = this.data.year_start
@@ -41,7 +42,7 @@ export class MyjobsDialogEditComponent implements OnInit {
 
   }
   
-  editForm(form:any){
+  editForm(form:JobsClass){
     
      let a = form;
     const meJobs = new JobsClass(this.id, a.company,a.job_title,a.job_desc,a.year_start,a.year_end)
@@ -52,7 +53,8 @@ export class MyjobsDialogEditComponent implements OnInit {
         this.matDialogRef.close();
         this.aboutChange.emit(form);
       }
-    }, catchError => {
+    },(catchError) => {
+     
       alert('Error al guardar')
     });
     

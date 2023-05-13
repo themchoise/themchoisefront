@@ -17,4 +17,13 @@ export class JobsClass{
             year_end:this.year_end
         }
     }
+    newJob(){
+        return{      
+            company:'',
+            job_title:'',
+            job_desc:'',
+            year_start:0,
+            year_end:0
+        }
+    }
 }

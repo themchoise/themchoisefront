@@ -42,7 +42,7 @@ public isLogged:boolean = false;
  constructor(private observer: BreakpointObserver, private viewportScroller: ViewportScroller, private router: Router, private apiService:ApiService,  public verifiToken:TokenService ) {}
 
 public onClick(elementId: string): void{ 
-  console.log(elementId)
+
   this.viewportScroller.scrollToAnchor(elementId)
   ; } 
 

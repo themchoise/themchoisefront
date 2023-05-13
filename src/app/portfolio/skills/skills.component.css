@@ -3,11 +3,22 @@
     height:auto;
     padding: 48px;
     justify-content: center;
-    align-items: center;
+    align-items: center;    
+}
+
+#front{
+    display: flex;
+    justify-content: center;
+}
+
+#back{
+    display: flex;
+    justify-content: center;
 }
 
 p{
     text-align: center;
     font-family: Roboto;
+    font-size: 1rem;
     
 }

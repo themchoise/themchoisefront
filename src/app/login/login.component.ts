@@ -12,7 +12,7 @@ import {Router} from '@angular/router'
 })
 export class LoginComponent implements OnInit {
 
-  public statusMsg: string = '';
+  public statusMsg: string = 'Login';
 
   constructor( private dialogRef:MatDialog, private startLogin:LoginService, private router:Router) { }
   
@@ -28,6 +28,7 @@ export class LoginComponent implements OnInit {
 
   saveInlocal(token:string):void{
     if (token){
+      localStorage.removeItem('X-TOKEN');
       localStorage.setItem('X-TOKEN', token);
     }
   
@@ -38,17 +39,18 @@ export class LoginComponent implements OnInit {
           this.startLogin.loginBackend(loginData).subscribe(
             response=>{
               if ( response.ok ){
-                this.statusMsg='Login Ok'
-                this.saveInlocal(response.token)
+                this.statusMsg='Login Ok';
+
+                this.saveInlocal(response.token);
                 this.router.navigate(['/']);
               }else{
                 this.statusMsg='Error de Acceso'
                 setTimeout(() => {
-                  this.statusMsg=''
-                }, 1000);
+                  this.statusMsg='Login'
+                }, 2000);
               }
             },
-            error=>console.log(error)
+            error=>(null)
           )
       
     }

@@ -1,6 +1,22 @@
+@media screen and (max-width: 640px){
+
+}
+
+@media screen and (min-width: 640px){
+    .maindivPortfolio{
+        margin-left: 8%;
+        margin-right: 8%;
+    }
+    
+}
+
+
+
+
+
 mat-sidenav{
     margin: 16px;
-    width: 280px;
+    width: 200px;
     border-right: none;
     background-color:  #212121;
     color:#A087D8;
@@ -11,6 +27,8 @@ mat-sidenav{
 .mat-sidenav-backdrop.mat-sidenav-shown{
     background-color: transparent !important;
 }
+
+
 
 .lnkIco{
     color: #A087D8;
@@ -24,8 +42,9 @@ mat-sidenav{
      flex;}
 
 .imgSideNav{
-    width: 15vh;
+    
     height: 15vw;
+    border-radius: 15px;
     box-shadow: #A087D8;
     transform-origin: left;
     position: relative;
@@ -76,14 +95,21 @@ span{
     margin-bottom: 5px;
 }
 
+.clancy{
+
+background: none;
+
+
+}
 
 .content {
     
     background-color: #303030;
     
-    margin:42px;
-    margin-left: 42px;
-    font-size: 2rem;
+  
+    margin:18px;
+    margin-left: 28px;
+    font-size: 1rem;
     border-radius: 10px;
 }
 
@@ -111,10 +137,13 @@ mat-sidenav-container{
     border-radius: 15px;
 height: 100%;
 width: 100%;
-
-
-
 }
+
+.educationContainer{
+    padding: 15px; 
+}
+
+
 .expContainer{
     margin-top: 15px;
     border-radius: 15px;
@@ -139,3 +168,16 @@ width: 100%;
     text-align: right;
 }
 
+@media screen and (max-width: 640px){
+    h2{
+  
+        padding: 0;
+        font-family: 'Roboto';
+        color:#945d8c;
+        letter-spacing: 0;
+        text-transform: uppercase;
+        text-align: center;
+    }
+
+    
+}

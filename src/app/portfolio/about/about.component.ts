@@ -46,12 +46,9 @@ export class AboutComponent implements OnInit {
     this.dataService.meData()
     .pipe(
       tap( res =>this.mePersonaData = res[0]
-            
          )
     )
     .subscribe();
-
-   
  }
 
  

@@ -1,13 +1,14 @@
-
-html,
-body {
-    height: 100%;
+html{
+    
 }
 body {
+    height: 100vh;
+    background-size:     cover; 
+    background-repeat: no-repeat;
+    background-image: url("/assets/wall1.jpg");
     margin: 0;
     font-family: Roboto, "Helvetica Neue", sans-serif;
 }
-
 .mt-2{
     margin-top: 2cm;
 }

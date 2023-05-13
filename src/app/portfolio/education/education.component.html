@@ -1,19 +1,25 @@
+<div *ngIf="!isPhone">
 <mat-form-field appearance="standard">
   <mat-label>Filtrar</mat-label>
   <input matInput (keyup)="applyFilter($event)" placeholder="Filtrar" #input>
 </mat-form-field>
 
+<button (click)="openDialog(-1)" *ngIf="(isLogged)" class="btn btnAdd"><mat-icon>add</mat-icon></button>
 
-<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8" >
 
     <!--- Note that these columns can be defined in any order.
           The actual rendered columns are set as a property on the row definition" -->
 
-            <!-- Checkbox Column -->
    <!-- Checkbox Column -->
+   <!-- Checkbox Column -->
+  
    <ng-container  matColumnDef="select">
     <th mat-header-cell *matHeaderCellDef>
-      <button (click)="openDialog()" *ngIf="(r)">Editar </button>
+      <button (click)="openDialog(0)" *ngIf="(r)"  class="btn btnEdit"><mat-icon>edit</mat-icon> </button>
+      <button mat-button (click)="removeItem()"  *ngIf="(r)"  class="btn btnAdd" >
+        <mat-icon>delete</mat-icon>
+        </button>
     </th>
     <td  mat-cell *matCellDef="let row">
       <mat-checkbox *ngIf="isLogged" (click)="selected(row)"
@@ -47,12 +53,19 @@
       <th mat-header-cell *matHeaderCellDef> Año Fin </th>
       <td mat-cell *matCellDef="let element"> {{element.year_end}} </td>
     </ng-container>
-
+ <!--
     <ng-container matColumnDef="description">
       <th mat-header-cell *matHeaderCellDef> Descripcion </th>
       <td class="mat-cell-description" mat-cell *matCellDef="let element"> {{element.description}} </td>
     </ng-container>
-  
+  -->
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
   </table>
+</div>
+
+<div *ngIf="isPhone" class="notify">
+  <span>
+    Mobile version is under construction
+  </span>
+</div>

@@ -38,8 +38,7 @@ export class LoginService{
  
     //Read Data 
     loginBackend(login:LoginClass):Observable<any>{
-      
-      console.log(login.getData())
+          
          return this.httpClient.post<LoginClass>(`${apiData}login`,login.getData(),httpOptions).pipe(
           catchError(err => err)
          );

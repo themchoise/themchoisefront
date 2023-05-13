@@ -22,10 +22,33 @@ export class MyjobsComponent implements OnInit {
 
  
   openDialog(indexOfelement:number){
-    this.matDiaLog.open(MyjobsDialogEditComponent,{
-      data: this.jobsDataArr[indexOfelement]
-    }).componentInstance.aboutChange.subscribe(result=> this.jobsDataArr[indexOfelement]=result)
+    if (indexOfelement===-1){
+      this.matDiaLog.open(MyjobsDialogEditComponent, {data:[]
+      }).componentInstance.aboutChange.subscribe(result=> location.reload());
+    }else{
+      this.matDiaLog.open(MyjobsDialogEditComponent,{
+        data: this.jobsDataArr[indexOfelement]
+      }).componentInstance.aboutChange.subscribe(result=> this.jobsDataArr[indexOfelement]=result)
     }
+    
+    }
+
+
+    removeItem(indexOfelement:number){
+      this.jobsData.removeJobs(this.jobsDataArr[indexOfelement]).pipe()
+      .subscribe( res => {
+        if ( res.status){
+       alert('Dato Eliminado Correctamente')
+       location.reload()
+        }
+      },(catchError) => {
+        alert('Error al Eliminar')
+      });
+      
+      
+      }
+
+
 
   ngOnInit(): void {
     this.jobsData.meJobs().pipe( tap(res => {
