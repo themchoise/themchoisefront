@@ -15,7 +15,7 @@ import { MyjobsDialogEditComponent } from './myjobs-dialog-edit/myjobs-dialog-ed
 export class MyjobsComponent implements OnInit {
 
   isLogged:boolean = false;
-
+  isLoading:boolean = true;
   jobsDataArr: JobsClass[] = [];
 
   constructor(public jobsData:DataService,  public verifiToken:TokenService, private matDiaLog: MatDialog ) {  }
@@ -24,11 +24,11 @@ export class MyjobsComponent implements OnInit {
   openDialog(indexOfelement:number){
     if (indexOfelement===-1){
       this.matDiaLog.open(MyjobsDialogEditComponent, {data:[]
-      }).componentInstance.aboutChange.subscribe(result=> location.reload());
+      }).componentInstance.aboutChange.subscribe(result=>this.fn());
     }else{
       this.matDiaLog.open(MyjobsDialogEditComponent,{
         data: this.jobsDataArr[indexOfelement]
-      }).componentInstance.aboutChange.subscribe(result=> this.jobsDataArr[indexOfelement]=result)
+      }).componentInstance.aboutChange.subscribe(result=>this.fn())
     }
     
     }
@@ -38,8 +38,7 @@ export class MyjobsComponent implements OnInit {
       this.jobsData.removeJobs(this.jobsDataArr[indexOfelement]).pipe()
       .subscribe( res => {
         if ( res.status){
-       alert('Dato Eliminado Correctamente')
-       location.reload()
+       this.fn();
         }
       },(catchError) => {
         alert('Error al Eliminar')
@@ -53,6 +52,7 @@ export class MyjobsComponent implements OnInit {
   ngOnInit(): void {
     this.jobsData.meJobs().pipe( tap(res => {
       this.jobsDataArr=res
+      this.isLoading=false;
     }    )).subscribe();
 
     let token:string = localStorage.getItem('X-TOKEN') || '' ;
@@ -67,9 +67,12 @@ export class MyjobsComponent implements OnInit {
       .subscribe();
          }
   
- 
   }
 
+
+  fn() {
+    this.ngOnInit();
+}
 
 
 }

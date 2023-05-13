@@ -29,7 +29,7 @@ export class EducationComponent implements OnInit {
   }
 
    isPhone:boolean = false;
-   
+   isLoading:boolean = true;
 
 
   constructor( public educData:DataService, private matDiaLog: MatDialog, public verifiToken:TokenService,  private elementRef: ElementRef) { }
@@ -49,6 +49,8 @@ this.matDiaLog.open(EducationDialogEditComponent,{
             // this.educationDataArr=res
             this.educationDataArr = res,
             this.dataSource.data = res;
+            this.selection.clear()
+            this.r = null
           }    )).subscribe();
         }
       })
@@ -61,9 +63,9 @@ this.matDiaLog.open(EducationDialogEditComponent,{
       this.educData.removeEduc(this.r).pipe()
       .subscribe( res => {
         if ( res.status){
-          console.log(res.status)
-       alert('Dato Eliminado Correctamente')
-       //location.reload()
+       this.fn() ;
+       this.selection.clear()
+       this.r = null
         }
       },(catchError) => {
         alert('Error al Eliminar')
@@ -77,6 +79,7 @@ this.matDiaLog.open(EducationDialogEditComponent,{
    r: any
 selected(row?: any):void{
   if ( !this.selection.isSelected(row)  ){
+
     this.r = row;
   }else{
     this.r = null
@@ -97,6 +100,7 @@ selected(row?: any):void{
       // this.educationDataArr=res
       this.educationDataArr = res,
       this.dataSource.data = res;
+      this.isLoading=false;
     }    )).subscribe();
 
     let token:string = localStorage.getItem('X-TOKEN') || '' ;

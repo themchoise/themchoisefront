@@ -1,8 +1,13 @@
 
 <div class="container-fluid">
  
+    <mat-spinner *ngIf="!mePersonaData?.about_me" ></mat-spinner>
+
+
+
+    
 <h3>   
-    {{ mePersonaData?.about_me?mePersonaData.about_me:'No Data From Api About Me' }}
+    {{ mePersonaData?.about_me&&mePersonaData.about_me}}
     <div *ngIf="isLogged" >
         <button mat-button (click)="openDialog()"  class="btn btnEdit" >
             <mat-icon>edit</mat-icon>

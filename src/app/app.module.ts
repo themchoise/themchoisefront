@@ -29,9 +29,12 @@ import { MyjobsDialogEditComponent } from './portfolio/myjobs/myjobs-dialog-edit
 import { EducationComponent } from './portfolio/education/education.component';
 import { MatTableModule } from '@angular/material/table'  
 import { MatInputModule } from '@angular/material/input';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import { MatSort, MatSortModule } from '@angular/material/sort';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import { EducationDialogEditComponent } from './portfolio/education/education-dialog-edit/education-dialog-edit.component';
+
+
 
 @NgModule({
   declarations: [AppComponent, AboutComponent, LoginComponent, PortfolioComponent, AboutDialogEditComponent, MyjobsComponent, SkillsComponent, MyjobsDialogEditComponent, EducationComponent, EducationDialogEditComponent
@@ -39,6 +42,7 @@ import { EducationDialogEditComponent } from './portfolio/education/education-di
   imports: [
     RouterModule.forRoot([]),
     FormsModule,
+    MatProgressSpinnerModule,
     MatSortModule,
     MatCheckboxModule,
     MatFormFieldModule,

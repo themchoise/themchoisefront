@@ -16,7 +16,7 @@ import { TokenService } from '../../services/tokenService';
 export class AboutComponent implements OnInit {
 
   isLogged:boolean = false;
-
+  loading:boolean = true;
   mePersonaData: any
 
 
@@ -41,14 +41,15 @@ export class AboutComponent implements OnInit {
       )
       .subscribe();
          }
-    
-
-    this.dataService.meData()
-    .pipe(
-      tap( res =>this.mePersonaData = res[0]
+    this.dataService.meData().pipe(
+      tap( res =>{
+        this.mePersonaData = res[0]
+     
+      }
          )
     )
     .subscribe();
+  
  }
 
  
